@@ -1,0 +1,31 @@
+const BASE_URL = '/Market'
+export const MARKET_ENDPOINT = {
+  GET_ALL_SYMBOLS: () => `${BASE_URL}/GetAllSymbols`,
+  SEARCH_SYMBOLS: (searchText: string) =>
+    `${BASE_URL}/SearchSymbols?searchText=${searchText}`,
+  GET_FUNDAMENTAL_DETAILS: (isin: string) =>
+    `${BASE_URL}/GetFundamentalDetails?isin=${isin}`,
+  GET_GENERAL_DETAILS: (joinedIsins: string) =>
+    `${BASE_URL}/GetGeneralDetails?isin=${joinedIsins}`,
+  GET_RIGHTFUL_AND_LEGAL_DETAILS: (isin: string) =>
+    `${BASE_URL}/GetRightfulAndLegalDetails?isin=${isin}`,
+  GET_NAV_DETAILS: (isin: string) => `${BASE_URL}/GetNAVDetails?isin=${isin}`,
+  GET_COMPRESSED_MARKET_DEPTH: (isin: string) =>
+    `${BASE_URL}/GetCompressedMarketDepth?isin=${isin}`,
+  GET_SYMBOL_TSETMC_INS_CODE: (isin: string) =>
+    `${BASE_URL}/GetSymbolTsetmcInsCode?isin=${isin}`,
+  GET_MARKET_COMMISION: () => `${BASE_URL}/GetMarketCommision`,
+  SEARCH_SECTORS: (searchText: string) =>
+    `${BASE_URL}/SearchSectors?searchText=${searchText}`,
+  GET_VOLUMETRIC_POSITION: () => `${BASE_URL}/GetVolumetricPosition`,
+  GET_SUPERVISOR_MESSAGES: () => `${BASE_URL}/GetSupervisorMessages`,
+  ADD_SYMBOL_WATCH_GROUP: () => `${BASE_URL}/AddSymbolWatchGroup`,
+  GET_SYMBOL_WATCH_GROUPS: () => `${BASE_URL}/GetSymbolWatchGroups`,
+  UPDATE_SYMBOL_WATCH_GROUP: () => `${BASE_URL}/UpdateSymbolWatchGroup`,
+  DELETE_SYMBOL_WATCH_GROUP: () => `${BASE_URL}/DeleteSymbolWatchGroup`,
+  ADD_SYMBOL_WATCHES: () => `${BASE_URL}/addSymbolWatches`,
+  GET_SYMBOL_WATCHES: () => `${BASE_URL}/GetSymbolWatches`,
+  DELETE_SYMBOL_WATCHES: () => `${BASE_URL}/DeleteSymbolWatches`,
+  SET_SYMBOL_WATCH_NOTE: () => `${BASE_URL}/SetSymbolWatchNote`,
+  GET_SYMBOL_WATCH_NOTES_BY_ISINS: () => `${BASE_URL}/GetSymbolWatchNotesByIsins`,
+}
