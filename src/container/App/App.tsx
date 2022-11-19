@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react'
 import { useSetting } from '@/api/Setting'
 import { AppLayout } from '@/layouts'
-import { useAppDispatch, useAppSelector } from '@/store'
-import { ActiveMonitorIdSelector, initializeMonitors } from '@/store/monitors'
+import { useAppDispatch } from '@/store'
+import { initializeMonitors } from '@/store/monitors'
 import Monitors from '../Monitor/Monitors'
 import Tab from '../Tab/Tab'
+import { Tabs } from '../Monitor/components'
 
 const App = () => {
   const { data, isSuccess } = useSetting()
@@ -17,8 +18,13 @@ const App = () => {
 
   return (
     <AppLayout>
-      {data?.monitors.map(({ id, name }) => {
-        return <Monitors id={id} key={id} name={name} />
+      {data?.monitors.map(({ id }) => {
+        return (
+          <Monitors id={id} key={id}>
+            <Tabs monitorId={id} />
+            <Tab monitorId={id} />
+          </Monitors>
+        )
       })}
     </AppLayout>
   )

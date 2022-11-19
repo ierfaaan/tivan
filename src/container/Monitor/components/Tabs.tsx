@@ -5,7 +5,6 @@ import { PlusIcon } from '@/common/icons'
 import { IconButton } from '@/elements'
 import { useAppDispatch, useAppSelector } from '@/store'
 import {
-  ActiveMonitorIdSelector,
   addCategoryTab,
   changeIndexTab,
   TabsFilterByMonitorSelector,
@@ -19,7 +18,6 @@ interface TabsProps {
 
 const Tabs: FC<TabsProps> = ({ monitorId }) => {
   const dispatch = useAppDispatch()
-  const activeMonitorId = useAppSelector(ActiveMonitorIdSelector)
   const tabs = useAppSelector(TabsFilterByMonitorSelector(monitorId))
 
   const moveCard = useCallback((dragIndex: number, hoverIndex: number) => {
@@ -27,7 +25,7 @@ const Tabs: FC<TabsProps> = ({ monitorId }) => {
   }, [])
 
   const createNewCategoryLayoutHandler = () => {
-    dispatch(addCategoryTab(CreateCategoryLayout(nanoid(), activeMonitorId)))
+    dispatch(addCategoryTab(CreateCategoryLayout(nanoid(), monitorId)))
   }
   return (
     <div className="w-100 h-[60px] bg-white rounded-b-lg px-3 flex items-center gap-3">

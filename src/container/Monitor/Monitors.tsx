@@ -1,16 +1,13 @@
-import { FC, useEffect } from 'react'
+import { FC } from 'react'
 import classNames from 'classnames'
-import { Tabs } from './components'
 import { useAppSelector } from '@/store'
 import { ActiveMonitorIdSelector } from '@/store/monitors'
-import Tab from '../Tab/Tab'
 
 interface MonitorsProps {
   id: string
-  name: string
 }
 
-const Monitors: FC<MonitorsProps> = ({ id, children, name }) => {
+const Monitors: FC<MonitorsProps> = ({ id, children }) => {
   const activeMonitorId = useAppSelector(ActiveMonitorIdSelector)
 
   return (
@@ -20,8 +17,7 @@ const Monitors: FC<MonitorsProps> = ({ id, children, name }) => {
         'flex-1 h-full flex-col gap-3 w-full'
       )}
     >
-      <Tabs monitorId={id} />
-      <Tab monitorId={id} />
+      {children}
     </div>
   )
 }
