@@ -5,7 +5,7 @@ import { SendOrderLayouts } from './constants'
 
 interface SendOrderProps {}
 
-const SendOrder: React.FC<SendOrderProps> = () => {
+export const SendOrder: React.FC<SendOrderProps> = () => {
   return (
     <>
       {SendOrderLayouts.map(({ component: Component, description, id, title }) => {
@@ -18,5 +18,3 @@ const SendOrder: React.FC<SendOrderProps> = () => {
     </>
   )
 }
-
-export default SendOrder

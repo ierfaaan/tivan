@@ -5,8 +5,8 @@ import { HTML5Backend } from 'react-dnd-html5-backend'
 import { DndProvider } from 'react-dnd'
 import { ThemeProvider } from '../ThemeProvider/ThemeProvider'
 import { store } from '@/store'
-// import { ClockProvider } from '@/libs/Clock'
 import { queryClient } from '@/config'
+import { ClockProvider } from '@/libs/Clock'
 
 interface AppProviderProps {}
 
@@ -17,8 +17,7 @@ export const AppProvider: FunctionComponent<AppProviderProps> = ({ children }) =
         <Provider store={store}>
           <QueryClientProvider client={queryClient}>
             <ThemeProvider>
-              {children}
-              {/* <ClockProvider>{children}</ClockProvider> */}
+              <ClockProvider>{children}</ClockProvider>
             </ThemeProvider>
           </QueryClientProvider>
         </Provider>

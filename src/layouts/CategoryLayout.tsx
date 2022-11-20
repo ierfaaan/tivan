@@ -1,4 +1,4 @@
-import { FC, useState } from 'react'
+import { FC, useState, memo } from 'react'
 import { CategoryList, LayoutOverviews } from '@/modules'
 
 interface CategoryLayoutProps {}
@@ -17,4 +17,4 @@ const CategoryLayout: FC<CategoryLayoutProps> = () => {
   )
 }
 
-export default CategoryLayout
+export default memo(CategoryLayout)

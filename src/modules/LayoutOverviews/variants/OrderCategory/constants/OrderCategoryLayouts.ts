@@ -1,4 +1,4 @@
-import { OrderCategoryOne, HistoryBasket } from '../components'
+import { HistoryBasket, OrderCategoryOne } from '../components'
 
 export const OrderCategoryLayouts = [
   {

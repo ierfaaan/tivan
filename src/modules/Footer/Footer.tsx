@@ -26,7 +26,7 @@ const Footer: FunctionComponent<FooterProps> = () => {
         )}
       >
         <ThemeChanger />
-        {/* <Clock /> */}
+        <Clock />
       </div>
     </footer>
   )

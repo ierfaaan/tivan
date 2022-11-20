@@ -4,7 +4,7 @@ import { HistoryBasket, OrderCategoryOne } from './components'
 import { OrderCategoryLayouts } from './constants'
 
 interface OrderCategoryProps {}
-const OrderCategory: React.FC<OrderCategoryProps> = () => {
+export const OrderCategory: React.FC<OrderCategoryProps> = () => {
   return (
     <>
       {OrderCategoryLayouts.map(({ component: Component, description, id, title }) => {
@@ -17,5 +17,3 @@ const OrderCategory: React.FC<OrderCategoryProps> = () => {
     </>
   )
 }
-
-export default OrderCategory

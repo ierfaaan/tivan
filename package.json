@@ -10,7 +10,7 @@
     "format": "prettier --write \"./src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "json-server": "json-server --no-cors --port 5000 --watch server/db.json"
+    "server": "json-server --no-cors --port 5000 --watch server/db.json"
   },
   "keywords": [],
   "author": "",

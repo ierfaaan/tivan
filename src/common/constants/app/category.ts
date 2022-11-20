@@ -2,7 +2,15 @@ import { FunctionComponent } from 'react'
 import { TabType } from '@/api/Setting/types'
 import { CategoryType } from '@/common/types'
 import CategoryLayout from '@/layouts/CategoryLayout'
-import { OrderCategory, SendOrder } from '@/modules/LayoutOverviews/variants'
+import {
+  SendOrder,
+  OrderCategory,
+  MarketView,
+  MessageArchive,
+  OrderReport,
+  SubsidiaryPaper,
+  TransactionReport,
+} from '@/modules/LayoutOverviews/variants'
 
 export const CreateCategoryLayout = (id: string, monitorId: string): TabType => ({
   id,
@@ -29,31 +37,31 @@ export const Categories: CategoryType = {
   TransactionReport: {
     id: 3,
     name: 'گزارش معاملات',
-    overview: SendOrder,
+    overview: TransactionReport,
   },
   OrderCategory: {
     id: 4,
     name: 'دسته سفارش',
     overview: OrderCategory,
   },
-  marketView: {
+  MarketView: {
     id: 5,
     name: 'نمای بازار',
-    overview: SendOrder,
+    overview: MarketView,
   },
   CustomerGroup: {
     id: 6,
-    name: 'گروه مشتریان',
+    name: 'مدیریت گروه مشتریان',
     overview: OrderCategory,
   },
   MessageArchive: {
     id: 7,
     name: 'آرشیو پیام ها',
-    overview: SendOrder,
+    overview: MessageArchive,
   },
   SubsidiaryPaper: {
     id: 8,
     name: 'اوراق تبعی',
-    overview: OrderCategory,
+    overview: SubsidiaryPaper,
   },
 }

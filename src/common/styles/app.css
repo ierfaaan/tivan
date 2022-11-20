@@ -19,3 +19,8 @@ html {
 .theme-dark {
   --primaryColor: #011627;
 }
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
