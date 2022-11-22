@@ -1,3 +1,4 @@
+/* eslint-disable react/button-has-type */
 import classNames from 'classnames'
 import { FC, ReactNode } from 'react'
 import { BaseComponentTypes } from '@/common/types/components'

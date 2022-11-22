@@ -6,6 +6,9 @@ const initialState: initialMonitorsStateType = {
   monitors: [],
 }
 
+// #5 TODO::Add Clear Tabs reducers
+// #6 TODO::Add Limitation For Tab Add And Show Alert
+
 export const monitorSlice = createSlice({
   initialState,
   name: 'monitors',
@@ -17,6 +20,7 @@ export const monitorSlice = createSlice({
       state.monitors = action.payload
     },
     addNewTab() {},
+    addTabWithIndex() {},
     addCategoryTab(state, action: AddCategoryTabActionType) {
       const activeMonitor = state.monitors?.[state.activeMonitorIndex]
       activeMonitor.tabs.forEach((item) => {
@@ -24,7 +28,6 @@ export const monitorSlice = createSlice({
       })
       activeMonitor?.tabs.push(action.payload)
     },
-    addTabWithIndex() {},
     changeIndexTab(state, action) {
       const { dragIndex } = action.payload
       const { hoverIndex } = action.payload

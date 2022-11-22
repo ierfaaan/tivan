@@ -6,6 +6,7 @@ import { initializeMonitors } from '@/store/monitors'
 import Monitors from '../Monitor/Monitors'
 import Tab from '../Tab/Tab'
 import { Tabs } from '../Monitor/components'
+import { SettingModelModel } from '@/models/Setting'
 
 const App = () => {
   const { data, isSuccess } = useSetting()
@@ -14,6 +15,7 @@ const App = () => {
   useEffect(() => {
     if (!isSuccess) return
     dispatch(initializeMonitors(data.monitors))
+    SettingModelModel.setSetting = data
   }, [isSuccess])
 
   return (

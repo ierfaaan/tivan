@@ -22,7 +22,8 @@
     "paths": {
       "@/*": ["./src/*"],
       "~/*": ["./public/*"]
-    }
+    },
+    "typeRoots": ["./node_modules/@types", "src/types"]
   },
 
   "include": ["src/**/*", "types", "IconButton.stories.tsx"]

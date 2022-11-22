@@ -1,7 +1,6 @@
 export type TabType = {
   id: string
   title: string
-  monitorId: string
   isActive: boolean
   layout: {
     component: React.FunctionComponent

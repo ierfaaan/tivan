@@ -1,6 +1,6 @@
-import { BaseComponentTypes } from '@/common/types/components'
-import classNames from 'classnames'
 import { FunctionComponent } from 'react'
+import classNames from 'classnames'
+import { BaseComponentTypes } from '@/common/types/components'
 
 interface OverviewGridProps extends BaseComponentTypes {}
 
