@@ -10,5 +10,6 @@ export const {
   initializeMonitors,
   removeTab,
   changeIndexTab,
+  clearTabs,
 } = monitorSlice.actions
 export { default as monitorReducer } from './slice'

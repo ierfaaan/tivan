@@ -9,6 +9,7 @@ import { CloseIcon } from '@/common/icons'
 
 interface TabBoxProps {
   isActive: boolean
+  closable: boolean
   index: number
   title: string
   id: string
@@ -21,7 +22,14 @@ type DragItem = {
   type: string
 }
 
-const TabBox: React.FC<TabBoxProps> = ({ index, isActive, title, id, moveCard }) => {
+const TabBox: React.FC<TabBoxProps> = ({
+  index,
+  isActive,
+  title,
+  closable,
+  id,
+  moveCard,
+}) => {
   const dispatch = useDispatch()
 
   const ref = useRef<HTMLDivElement>(null)
@@ -99,7 +107,7 @@ const TabBox: React.FC<TabBoxProps> = ({ index, isActive, title, id, moveCard })
   return (
     <div ref={ref} style={{ opacity }} data-handler-id={handlerId}>
       <Button
-        icon={isActive ? <CloseIcon /> : null}
+        icon={isActive && closable ? <CloseIcon /> : null}
         isActive={isActive}
         onClick={() => dispatch(changeActiveTab(index))}
         iconOnClick={() => dispatch(removeTab(index))}

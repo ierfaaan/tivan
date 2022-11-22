@@ -8,7 +8,7 @@ const OverviewBox: FunctionComponent<OverviewBoxProps> = ({ children, className 
   return (
     <div
       className={classNames(
-        'border-2 border-gray-400 text-gray-400 text-md  p-3 center text-center rounded-md',
+        'border-2 border-gray-400 text-gray-400 text-md  p-1 center text-center rounded-md',
         className
       )}
     >

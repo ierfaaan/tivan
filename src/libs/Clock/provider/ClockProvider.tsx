@@ -22,7 +22,6 @@ const ClockProvider: FC = ({ children }) => {
     subscription.setDataAdapter('clock')
     subscription.addListener({
       onItemUpdate: (updateInfo) => {
-        console.log('updateInfo', updateInfo)
         try {
           const value = updateInfo.getValue('time')
 

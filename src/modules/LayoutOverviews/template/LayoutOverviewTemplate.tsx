@@ -14,7 +14,7 @@ const LayoutOverviewTemplate: React.FC<LayoutOverviewTemplateProps> = ({
         <h3 className="font-semibold text-md">{title}</h3>
         {description && <p className="text-sm text-gray-400">({description})</p>}
       </div>
-      <div className="border-2 bg-gray-100 rounded-md border-gray-300 b  aspect-video">
+      <div className="border-2 bg-gray-100 rounded-md border-gray-300 aspect-video">
         {children}
       </div>
     </div>

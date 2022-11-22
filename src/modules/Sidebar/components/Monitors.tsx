@@ -26,7 +26,6 @@ const Monitors: FC<MonitorsProps> = () => {
           isActive={monitor.id === activeMonitorId}
           icon={<MonitorIcon size="30px" />}
           onClick={() => {
-            console.log('MonitorClick')
             dispatch(changeActiveMonitor(index))
           }}
           className="w-[40px] h-[40px]"

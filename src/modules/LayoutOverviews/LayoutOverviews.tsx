@@ -8,7 +8,7 @@ interface LayoutOverviewsProps {
 
 const LayoutOverviews: React.FC<LayoutOverviewsProps> = ({ activeCategoryId }) => {
   return (
-    <div className="bg-white grid grid-cols-3 gap-3 content-start flex-1 h-full flex-wrap rounded-md p-3">
+    <div className="bg-white grid grid-cols-3 gap-8 content-start flex-1 h-full flex-wrap rounded-md p-5">
       {Object.keys(Categories).map((key) => {
         const OverViewComponent =
           Categories[key].id === activeCategoryId && Categories[key].overview

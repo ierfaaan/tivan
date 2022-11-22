@@ -1,13 +1,44 @@
-import { GlobalSettingResponseType, GlobalSettingResultType } from './types'
+import { CategoryLayout, StatisticLayout } from '@/layouts'
+import { GlobalSettingResponseType, GlobalSettingResultType, MonitorType } from './types'
 
-const monitorDto = (monitorCount: number) => {
+const monitorDto = (monitorCount: number): Array<MonitorType> => {
   return Array.from(Array(monitorCount).keys()).map((item) => {
-    // #1 TODO::Add Statistics Tab For First Monitor
-    // #2 TODO::Add Category Tab For Other Monitor Except First Monitor
-    return {
-      id: item.toString(),
-      name: `monitor${item}`,
-      tabs: [],
+    if (item === 0) {
+      return {
+        id: item.toString(),
+        name: `monitor${item}`,
+        tabs: [
+          {
+            id: 'StatisticLayout',
+            title: 'عملکرد',
+            isActive: true,
+            closable: false,
+            data: {},
+            layout: {
+              commonProps: {},
+              component: StatisticLayout,
+            },
+          },
+        ],
+      }
+    } else {
+      return {
+        id: item.toString(),
+        name: `monitor${item}`,
+        tabs: [
+          {
+            id: 'CategoryLayout',
+            title: 'تب جدید',
+            isActive: true,
+            data: {},
+            closable: false,
+            layout: {
+              commonProps: {},
+              component: CategoryLayout,
+            },
+          },
+        ],
+      }
     }
   })
 }

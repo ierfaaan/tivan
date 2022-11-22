@@ -24,3 +24,7 @@ html {
   align-items: center;
   justify-content: center;
 }
+.Toastify__toast-body {
+  font-family: 'IranSansX';
+  font-weight: 600;
+}

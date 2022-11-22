@@ -7,6 +7,7 @@ import { useAppDispatch, useAppSelector } from '@/store'
 import {
   addCategoryTab,
   changeIndexTab,
+  clearTabs,
   TabsFilterByMonitorSelector,
 } from '@/store/monitors'
 
@@ -27,20 +28,24 @@ const Tabs: FC<TabsProps> = ({ monitorId }) => {
   const createNewCategoryLayoutHandler = () => {
     dispatch(addCategoryTab(CreateCategoryLayout(nanoid())))
   }
+  const clearTabsHandler = () => {
+    dispatch(clearTabs())
+  }
   return (
-    <div className="w-100 h-[60px] bg-white rounded-b-lg px-3 flex items-center gap-3">
+    <div className="w-100 h-[60px] flex-shrink-0 bg-white rounded-b-lg px-3 flex items-center gap-3">
       <IconButton
         className="text-red-400 hover:text-red-600 border-red-400 hover:border-red-600"
         icon={<TrashIcon />}
-        onClick={createNewCategoryLayoutHandler}
+        onClick={clearTabsHandler}
       />
       <IconButton icon={<PlusIcon />} onClick={createNewCategoryLayoutHandler} />
       <div className="flex items-center gap-3">
-        {tabs?.map(({ id, title, isActive }, index) => (
+        {tabs?.map(({ id, title, isActive, closable = true }, index) => (
           <TabBox
             index={index}
             id={id}
             isActive={isActive}
+            closable={closable}
             title={title}
             key={id}
             moveCard={moveCard}

@@ -1,4 +1,6 @@
+import { SettingModelModel } from '@/models/Setting'
 import { createSlice } from '@reduxjs/toolkit'
+import { toast } from 'react-toastify'
 import { AddCategoryTabActionType, initialMonitorsStateType } from './types'
 
 const initialState: initialMonitorsStateType = {
@@ -6,8 +8,7 @@ const initialState: initialMonitorsStateType = {
   monitors: [],
 }
 
-// #5 TODO::Add Clear Tabs reducers
-// #6 TODO::Add Limitation For Tab Add And Show Alert
+// #1* TODO:: If Other Monitors Was Empty Should Show NewTab
 
 export const monitorSlice = createSlice({
   initialState,
@@ -19,9 +20,18 @@ export const monitorSlice = createSlice({
     initializeMonitors(state, action) {
       state.monitors = action.payload
     },
+    clearTabs(state) {
+      const activeMonitor = state.monitors?.[state.activeMonitorIndex]
+      activeMonitor.tabs = []
+    },
     addNewTab() {},
     addTabWithIndex() {},
     addCategoryTab(state, action: AddCategoryTabActionType) {
+      const tabCount = state.monitors?.[state.activeMonitorIndex].tabs.length + 1
+      if (SettingModelModel.tabCount && tabCount > SettingModelModel.tabCount) {
+        toast.error(`حداکثر تعداد مجاز ${SettingModelModel.tabCount} تب میباشد`)
+        return
+      }
       const activeMonitor = state.monitors?.[state.activeMonitorIndex]
       activeMonitor.tabs.forEach((item) => {
         item.isActive = false

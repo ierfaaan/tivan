@@ -2,6 +2,7 @@ export type TabType = {
   id: string
   title: string
   isActive: boolean
+  closable?: boolean
   layout: {
     component: React.FunctionComponent
     commonProps: Record<string, any>

@@ -15,7 +15,7 @@ const App = () => {
   useEffect(() => {
     if (!isSuccess) return
     dispatch(initializeMonitors(data.monitors))
-    SettingModelModel.setSetting = data
+    SettingModelModel.setting = data
   }, [isSuccess])
 
   return (

@@ -6,7 +6,7 @@ interface OverviewGridProps extends BaseComponentTypes {}
 
 const OverviewGrid: FunctionComponent<OverviewGridProps> = ({ children, className }) => {
   return (
-    <div className={classNames('h-full grid bg-white rounded-md p-3 gap-3', className)}>
+    <div className={classNames('h-full grid bg-white rounded-md p-3 gap-2', className)}>
       {children}
     </div>
   )
