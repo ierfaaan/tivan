@@ -6,7 +6,7 @@ const monitorDto = (monitorCount: number): Array<MonitorType> => {
     if (item === 0) {
       return {
         id: item.toString(),
-        name: `monitor${item}`,
+        name: `میزکار ${item + 1}`,
         tabs: [
           {
             id: 'StatisticLayout',
@@ -21,24 +21,23 @@ const monitorDto = (monitorCount: number): Array<MonitorType> => {
           },
         ],
       }
-    } else {
-      return {
-        id: item.toString(),
-        name: `monitor${item}`,
-        tabs: [
-          {
-            id: 'CategoryLayout',
-            title: 'تب جدید',
-            isActive: true,
-            data: {},
-            closable: false,
-            layout: {
-              commonProps: {},
-              component: CategoryLayout,
-            },
+    }
+    return {
+      id: item.toString(),
+      name: `میزکار ${item + 1}`,
+      tabs: [
+        {
+          id: 'CategoryLayout',
+          title: 'تب جدید',
+          isActive: true,
+          data: {},
+          closable: false,
+          layout: {
+            commonProps: {},
+            component: CategoryLayout,
           },
-        ],
-      }
+        },
+      ],
     }
   })
 }

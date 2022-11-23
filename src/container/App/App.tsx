@@ -7,6 +7,7 @@ import Monitors from '../Monitor/Monitors'
 import Tab from '../Tab/Tab'
 import { Tabs } from '../Monitor/components'
 import { SettingModelModel } from '@/models/Setting'
+import { ToolTip } from '@/elements'
 
 const App = () => {
   const { data, isSuccess } = useSetting()
