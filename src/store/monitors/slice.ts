@@ -8,8 +8,6 @@ const initialState: initialMonitorsStateType = {
   monitors: [],
 }
 
-// #1* TODO:: If Other Monitors Was Empty Should Show NewTab
-
 export const monitorSlice = createSlice({
   initialState,
   name: 'monitors',
