@@ -1,19 +1,19 @@
 /* eslint-disable react/button-has-type */
 import classNames from 'classnames'
-import { FC, ReactNode } from 'react'
-import { BaseComponentTypes } from '@/common/types/components'
+import { createElement, FC } from 'react'
+import { BaseComponentTypesWithIcon } from '@/common/types/components'
 
-interface IconButtonProps extends BaseComponentTypes {
-  icon: ReactNode
+interface IconButtonProps extends BaseComponentTypesWithIcon {
   varient?: 'outline' | 'standard'
   isActive?: boolean
 }
 
-const IconButton: FC<IconButtonProps> = ({
-  icon,
+export const IconButton: FC<IconButtonProps> = ({
   varient = 'outline',
   isActive = false,
   className,
+  iconProps,
+  icon,
   onClick,
   ...props
 }) => {
@@ -29,9 +29,7 @@ const IconButton: FC<IconButtonProps> = ({
       onClick={onClick}
       {...props}
     >
-      {icon}
+      {createElement(icon!, iconProps)}
     </button>
   )
 }
-
-export default IconButton

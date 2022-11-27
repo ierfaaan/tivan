@@ -1,6 +1,6 @@
 import { MonitorType, TabType } from '@/api/Setting/types'
 
-export type initialMonitorsStateType = {
+export type InitialMonitorsStateType = {
   activeMonitorIndex: number
   monitors: Array<MonitorType> | []
 }
@@ -10,5 +10,9 @@ export type BaseActionType = {
 }
 
 export interface AddCategoryTabActionType extends BaseActionType {
+  payload: TabType
+}
+
+export interface AddNewTabActionType extends BaseActionType {
   payload: TabType
 }

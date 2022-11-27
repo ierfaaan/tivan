@@ -10,12 +10,6 @@ interface TabProps {
 const Tab: FC<TabProps> = ({ monitorId }) => {
   const tabs = useAppSelector(TabsFilterByMonitorSelector(monitorId))
 
-  const activeTab = tabs?.find((tab) => tab.isActive)
-  let Component = <div />
-  if (activeTab?.layout.component) {
-    Component = createElement(activeTab?.layout.component)
-  }
-
   return (
     <>
       {tabs?.map((tab) => (
@@ -26,7 +20,7 @@ const Tab: FC<TabProps> = ({ monitorId }) => {
           )}
           key={tab.id}
         >
-          {Component}
+          {createElement(tab?.layout.component)}
         </div>
       ))}
     </>

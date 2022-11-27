@@ -4,9 +4,19 @@ import { BaseComponentTypes } from '@/common/types/components'
 
 interface OverviewGridProps extends BaseComponentTypes {}
 
-const OverviewGrid: FunctionComponent<OverviewGridProps> = ({ children, className }) => {
+const OverviewGrid: FunctionComponent<OverviewGridProps> = ({
+  children,
+  className,
+  onClick,
+}) => {
   return (
-    <div className={classNames('h-full grid bg-white rounded-md p-3 gap-2', className)}>
+    <div
+      onClick={onClick}
+      className={classNames(
+        'h-full grid bg-white rounded-md p-3 gap-2 select-none',
+        className
+      )}
+    >
       {children}
     </div>
   )

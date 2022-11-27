@@ -6,7 +6,7 @@ interface AnchorProps extends BaseComponentTypes {
   type?: 'vertical' | 'horizontal'
 }
 
-const Anchor: FC<AnchorProps> = ({ className, type = 'vertical', ...props }) => {
+export const Anchor: FC<AnchorProps> = ({ className, type = 'vertical', ...props }) => {
   return (
     <div
       className={classNames(
@@ -22,5 +22,3 @@ const Anchor: FC<AnchorProps> = ({ className, type = 'vertical', ...props }) => 
     </div>
   )
 }
-
-export default Anchor

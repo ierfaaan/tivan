@@ -20,12 +20,14 @@ const Monitors: FC<MonitorsProps> = () => {
   if (isSuccess) {
     content = data?.monitors.map((monitor, index) => {
       return (
-        <ToolTip tooltip={monitor.name} placement="left">
+        <ToolTip key={monitor.id} tooltip={monitor.name} placement="left">
           <IconButton
             varient="standard"
-            key={monitor.id}
             isActive={monitor.id === activeMonitorId}
-            icon={<MonitorIcon size="30px" />}
+            icon={MonitorIcon}
+            iconProps={{
+              size: '30px',
+            }}
             onClick={() => {
               dispatch(changeActiveMonitor(index))
             }}

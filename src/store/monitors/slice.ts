@@ -1,9 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { toast } from 'react-toastify'
 import { SettingModelModel } from '@/models/Setting'
-import { AddCategoryTabActionType, initialMonitorsStateType } from './types'
+import {
+  AddCategoryTabActionType,
+  AddNewTabActionType,
+  InitialMonitorsStateType,
+} from './types'
 
-const initialState: initialMonitorsStateType = {
+const initialState: InitialMonitorsStateType = {
   activeMonitorIndex: 0,
   monitors: [],
 }
@@ -22,7 +26,11 @@ export const monitorSlice = createSlice({
       const activeMonitor = state.monitors?.[state.activeMonitorIndex]
       activeMonitor.tabs = []
     },
-    addNewTab() {},
+    addNewTab(state, action: AddNewTabActionType) {
+      const activeMonitor = state.monitors?.[state.activeMonitorIndex]
+      const categoryTabIndex = activeMonitor.tabs.findIndex((tab) => tab.isActive)
+      activeMonitor.tabs[categoryTabIndex] = action.payload
+    },
     addTabWithIndex() {},
     addCategoryTab(state, action: AddCategoryTabActionType) {
       const tabCount = state.monitors?.[state.activeMonitorIndex].tabs.length

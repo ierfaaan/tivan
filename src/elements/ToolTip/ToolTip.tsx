@@ -7,7 +7,7 @@ interface ToolTipProps extends BaseComponentTypes {
   placement?: 'top' | 'left' | 'bottom' | 'right'
 }
 
-const ToolTip: FunctionComponent<ToolTipProps> = ({
+export const ToolTip: FunctionComponent<ToolTipProps> = ({
   children,
   tooltip,
   placement = 'top',
@@ -46,5 +46,3 @@ const ToolTip: FunctionComponent<ToolTipProps> = ({
     </div>
   )
 }
-
-export default ToolTip

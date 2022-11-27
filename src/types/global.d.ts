@@ -11,6 +11,7 @@ declare global {
   type $NullUndefinedType<T> = T | null | undefined
   type $VoidFunc = (() => void) | undefined
   type $MapType<T> = Record<number | string, T>
+  type ClassName = React.HTMLAttributes<HTMLElement>['className']
 }
 
 export {}

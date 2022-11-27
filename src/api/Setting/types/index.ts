@@ -1,10 +1,12 @@
+import { FunctionComponent, ReactElement } from 'react'
+
 export type TabType = {
   id: string
   title: string
   isActive: boolean
   closable?: boolean
   layout: {
-    component: React.FunctionComponent
+    component: FunctionComponent
     commonProps: Record<string, any>
   }
   data: Record<string, any>
