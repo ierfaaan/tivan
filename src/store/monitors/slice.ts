@@ -1,14 +1,12 @@
-import { SettingModelModel } from '@/models/Setting'
 import { createSlice } from '@reduxjs/toolkit'
 import { toast } from 'react-toastify'
+import { SettingModelModel } from '@/models/Setting'
 import { AddCategoryTabActionType, initialMonitorsStateType } from './types'
 
 const initialState: initialMonitorsStateType = {
   activeMonitorIndex: 0,
   monitors: [],
 }
-
-// #1* TODO:: If Other Monitors Was Empty Should Show NewTab
 
 export const monitorSlice = createSlice({
   initialState,
@@ -27,8 +25,8 @@ export const monitorSlice = createSlice({
     addNewTab() {},
     addTabWithIndex() {},
     addCategoryTab(state, action: AddCategoryTabActionType) {
-      const tabCount = state.monitors?.[state.activeMonitorIndex].tabs.length + 1
-      if (SettingModelModel.tabCount && tabCount > SettingModelModel.tabCount) {
+      const tabCount = state.monitors?.[state.activeMonitorIndex].tabs.length
+      if (SettingModelModel.tabCount && tabCount + 1 > SettingModelModel.tabCount) {
         toast.error(`حداکثر تعداد مجاز ${SettingModelModel.tabCount} تب میباشد`)
         return
       }

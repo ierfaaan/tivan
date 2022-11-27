@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import Skeleton from 'react-loading-skeleton'
 import { MonitorIcon } from '@/common/icons'
-import { IconButton } from '@/elements'
+import { IconButton, ToolTip } from '@/elements'
 import { ActiveMonitorIdSelector, changeActiveMonitor } from '@/store/monitors'
 import { useAppDispatch, useAppSelector } from '@/store'
 import { useSetting } from '@/api/Setting'
@@ -20,16 +20,18 @@ const Monitors: FC<MonitorsProps> = () => {
   if (isSuccess) {
     content = data?.monitors.map((monitor, index) => {
       return (
-        <IconButton
-          varient="standard"
-          key={monitor.id}
-          isActive={monitor.id === activeMonitorId}
-          icon={<MonitorIcon size="30px" />}
-          onClick={() => {
-            dispatch(changeActiveMonitor(index))
-          }}
-          className="w-[40px] h-[40px]"
-        />
+        <ToolTip tooltip={monitor.name} placement="left">
+          <IconButton
+            varient="standard"
+            key={monitor.id}
+            isActive={monitor.id === activeMonitorId}
+            icon={<MonitorIcon size="30px" />}
+            onClick={() => {
+              dispatch(changeActiveMonitor(index))
+            }}
+            className="w-[40px] h-[40px]"
+          />
+        </ToolTip>
       )
     })
   }
