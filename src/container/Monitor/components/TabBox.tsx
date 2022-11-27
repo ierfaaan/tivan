@@ -107,7 +107,7 @@ const TabBox: React.FC<TabBoxProps> = ({
   return (
     <div ref={ref} style={{ opacity }} data-handler-id={handlerId}>
       <Button
-        icon={isActive && closable ? <CloseIcon /> : null}
+        icon={isActive && closable ? CloseIcon : null}
         isActive={isActive}
         onClick={() => dispatch(changeActiveTab(index))}
         iconOnClick={() => dispatch(removeTab(index))}

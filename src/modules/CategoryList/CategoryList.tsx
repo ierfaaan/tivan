@@ -24,7 +24,7 @@ const CategoryList: React.FC<CategoryListProps> = ({
           )}
         >
           <p className="font-bold text-slate-700">{Categories[key].name}</p>
-          <IconButton varient="standard" icon={<ArrowLeftIcon />} className="text-xl" />
+          <IconButton varient="standard" icon={ArrowLeftIcon} className="text-xl" />
         </div>
       ))}
     </div>

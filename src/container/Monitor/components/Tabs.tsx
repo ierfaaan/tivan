@@ -31,17 +31,18 @@ const Tabs: FC<TabsProps> = ({ monitorId }) => {
   const clearTabsHandler = () => {
     dispatch(clearTabs())
   }
+  console.log(tabs)
   return (
     <div className="w-100 h-[60px] flex-shrink-0 bg-white rounded-b-lg px-3 flex items-center gap-3">
       <ToolTip tooltip="پاک کردن همه ی تب ها" placement="bottom">
         <IconButton
           className="text-red-400 hover:text-red-600 border-red-400 hover:border-red-600"
-          icon={<TrashIcon />}
+          icon={TrashIcon}
           onClick={clearTabsHandler}
         />
       </ToolTip>
       <ToolTip tooltip="افزودن تب جدید" placement="bottom">
-        <IconButton icon={<PlusIcon />} onClick={createNewCategoryLayoutHandler} />
+        <IconButton icon={PlusIcon} onClick={createNewCategoryLayoutHandler} />
       </ToolTip>
       <div className="flex items-center gap-3">
         {tabs?.map(({ id, title, isActive, closable = true }, index) => (

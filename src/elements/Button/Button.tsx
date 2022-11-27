@@ -1,23 +1,29 @@
-import { FC, ReactNode, memo, forwardRef } from 'react'
+import React, { FC, createElement } from 'react'
+import { IconType } from '@react-icons/all-files'
 import classNames from 'classnames'
-import { BaseComponentTypes } from '@/common/types/components'
+import { BaseComponentTypesWithIcon } from '@/common/types/components'
 
-interface ButtonProps extends BaseComponentTypes {
+interface ButtonProps extends Omit<BaseComponentTypesWithIcon, 'icon'> {
   isActive?: boolean
-  icon?: ReactNode
   iconOnClick?: () => void
   iconPlace?: 'left' | 'right'
+  icon: IconType | null
 }
 
-const Button: FC<ButtonProps> = ({
+export const Button: FC<ButtonProps> = ({
   children,
   isActive,
-  icon,
   iconPlace = 'right',
   className,
+  iconProps,
+  icon,
   iconOnClick,
   ...props
 }) => {
+  const onClickHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.stopPropagation()
+    iconOnClick?.()
+  }
   return (
     <div
       className={classNames(
@@ -30,18 +36,12 @@ const Button: FC<ButtonProps> = ({
       )}
       {...props}
     >
-      <button>{children}</button>
-      <div
-        className="hover:text-red-400"
-        onClick={(e) => {
-          e.stopPropagation()
-          iconOnClick?.()
-        }}
-      >
-        {icon}
-      </div>
+      <button type="button">{children}</button>
+      {icon && (
+        <button type="button" className="hover:text-red-400" onClick={onClickHandler}>
+          {createElement(icon, iconProps)}
+        </button>
+      )}
     </div>
   )
 }
-
-export default Button
