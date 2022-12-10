@@ -1,13 +1,12 @@
 import React, { useEffect } from 'react'
 import { useSetting } from '@/api/Setting'
-import { AppLayout } from '@/layouts'
+import AppLayout from '@/layouts/AppLayout'
 import { useAppDispatch } from '@/store'
 import { initializeMonitors } from '@/store/monitors'
 import Monitors from '../Monitor/Monitors'
 import Tab from '../Tab/Tab'
 import { Tabs } from '../Monitor/components'
 import { SettingModelModel } from '@/models/Setting'
-import { ToolTip } from '@/elements'
 
 const App = () => {
   const { data, isSuccess } = useSetting()

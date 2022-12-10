@@ -19,4 +19,4 @@ export const SendOrderOneLayout: FC<SendOrderOneLayoutProps> = () => {
     </div>
   )
 }
-export const SendOrderOneLayoutMemoized = memo(SendOrderOneLayout)
+export default memo(SendOrderOneLayout)

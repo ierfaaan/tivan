@@ -5,7 +5,7 @@ import { useTheme } from '@/hooks'
 
 interface AppLayoutProps {}
 
-export const AppLayout: FC<AppLayoutProps> = ({ children }) => {
+const AppLayout: FC<AppLayoutProps> = ({ children }) => {
   const theme = useTheme()
 
   return (
@@ -18,3 +18,5 @@ export const AppLayout: FC<AppLayoutProps> = ({ children }) => {
     </div>
   )
 }
+
+export default AppLayout

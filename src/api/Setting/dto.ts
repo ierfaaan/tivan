@@ -1,4 +1,5 @@
-import { CategoryLayoutMemoized, StatisticLayoutMemoized } from '@/layouts'
+import CategoryLayout from '@/layouts/CategoryLayout'
+import StatisticLayout from '@/layouts/StatisticLayout'
 import { GlobalSettingResponseType, GlobalSettingResultType, MonitorType } from './types'
 
 const monitorDto = (monitorCount: number): Array<MonitorType> => {
@@ -16,7 +17,7 @@ const monitorDto = (monitorCount: number): Array<MonitorType> => {
             data: {},
             layout: {
               commonProps: {},
-              component: StatisticLayoutMemoized,
+              component: StatisticLayout,
             },
           },
         ],
@@ -34,7 +35,7 @@ const monitorDto = (monitorCount: number): Array<MonitorType> => {
           closable: false,
           layout: {
             commonProps: {},
-            component: CategoryLayoutMemoized,
+            component: CategoryLayout,
           },
         },
       ],
