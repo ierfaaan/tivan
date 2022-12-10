@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, memo } from 'react'
 import classNames from 'classnames'
 import { SearchIsinMemo } from '@/modules'
 
@@ -19,3 +19,4 @@ export const SendOrderOneLayout: FC<SendOrderOneLayoutProps> = () => {
     </div>
   )
 }
+export const SendOrderOneLayoutMemoized = memo(SendOrderOneLayout)

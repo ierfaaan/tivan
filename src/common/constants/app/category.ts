@@ -1,6 +1,6 @@
 import { TabType } from '@/api/Setting/types'
 import { CategoryType } from '@/common/types'
-import CategoryLayout from '@/layouts/CategoryLayout'
+import { CategoryLayoutMemoized } from '@/layouts/CategoryLayout'
 import {
   SendOrder,
   OrderCategory,
@@ -19,7 +19,7 @@ export const CreateCategoryLayout = (id: string): TabType => ({
   data: {},
   layout: {
     commonProps: {},
-    component: CategoryLayout,
+    component: CategoryLayoutMemoized,
   },
 })
 

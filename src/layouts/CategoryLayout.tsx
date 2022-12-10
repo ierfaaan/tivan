@@ -17,4 +17,4 @@ const CategoryLayout: FC<CategoryLayoutProps> = () => {
   )
 }
 
-export default memo(CategoryLayout)
+export const CategoryLayoutMemoized = memo(CategoryLayout)

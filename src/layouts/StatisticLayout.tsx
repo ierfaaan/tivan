@@ -6,4 +6,4 @@ const StatisticLayout: FC<StatisticLayoutProps> = () => {
   return <div className="h-full flex gap-3 w-full">StatisticLayout</div>
 }
 
-export default memo(StatisticLayout)
+export const StatisticLayoutMemoized = memo(StatisticLayout)
