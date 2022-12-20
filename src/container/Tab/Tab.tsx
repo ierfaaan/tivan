@@ -2,6 +2,7 @@ import classNames from 'classnames'
 import { FC, createElement } from 'react'
 import { useAppSelector } from '@/store'
 import { TabsFilterByMonitorSelector } from '@/store/monitors'
+import { Suspense } from 'react'
 
 interface TabProps {
   monitorId: string
@@ -9,7 +10,6 @@ interface TabProps {
 
 const Tab: FC<TabProps> = ({ monitorId }) => {
   const tabs = useAppSelector(TabsFilterByMonitorSelector(monitorId))
-
   return (
     <>
       {tabs?.map((tab) => (
@@ -20,7 +20,9 @@ const Tab: FC<TabProps> = ({ monitorId }) => {
           )}
           key={tab.id}
         >
-          {createElement(tab?.layout.component)}
+          <Suspense fallback="loading...">
+            {createElement(tab?.layout.component)}.
+          </Suspense>
         </div>
       ))}
     </>

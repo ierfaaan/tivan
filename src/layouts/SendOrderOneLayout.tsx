@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import { SearchIsinMemo } from '@/modules'
 
 interface SendOrderOneLayoutProps {}
-export const SendOrderOneLayout: FC<SendOrderOneLayoutProps> = () => {
+const SendOrderOneLayout: FC<SendOrderOneLayoutProps> = () => {
   const commonClass: ClassName = 'bg-white overflow-hidden rounded-md center'
 
   return (

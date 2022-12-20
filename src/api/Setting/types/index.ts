@@ -6,7 +6,7 @@ export type TabType = {
   isActive: boolean
   closable?: boolean
   layout: {
-    component: FunctionComponent
+    component: any
     commonProps: Record<string, any>
   }
   data: Record<string, any>

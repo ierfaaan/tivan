@@ -3,8 +3,7 @@ import { useDispatch } from 'react-redux'
 import { nanoid } from '@reduxjs/toolkit'
 import { addNewTab } from '@/store/monitors'
 import { OverviewBox, OverviewGrid } from '../../../common/components'
-
-const SendOrderOneLayoutLazy = lazy(() => import('@/layouts/SendOrderOneLayout'))
+import SendOrderOneLayout from '@/layouts/SendOrderOneLayout'
 
 interface SendOrderOneProps {}
 
@@ -20,7 +19,7 @@ const SendOrderOne: React.FC<SendOrderOneProps> = () => {
             data: {},
             isActive: true,
             layout: {
-              component: SendOrderOneLayoutLazy,
+              component: SendOrderOneLayout,
               commonProps: {},
             },
             title: 'ارسال سفارش یک',
