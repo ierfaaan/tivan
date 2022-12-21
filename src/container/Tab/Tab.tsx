@@ -1,8 +1,7 @@
+import { FC, createElement, Suspense } from 'react'
 import classNames from 'classnames'
-import { FC, createElement } from 'react'
 import { useAppSelector } from '@/store'
 import { TabsFilterByMonitorSelector } from '@/store/monitors'
-import { Suspense } from 'react'
 
 interface TabProps {
   monitorId: string
