@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import { FunctionComponent, useState } from 'react'
 import { Anchor } from '@/elements'
-import { Monitors } from './components'
+import { MenuList, Monitors } from './components'
 
 interface SidebarProps {}
 
@@ -24,6 +24,7 @@ const Sidebar: FunctionComponent<SidebarProps> = () => {
           sideBarState ? 'flex' : 'hidden'
         )}
       >
+        <MenuList />
         <Monitors />
       </div>
     </div>

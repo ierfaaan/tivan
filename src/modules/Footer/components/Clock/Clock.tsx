@@ -5,7 +5,7 @@ interface ClockProps {}
 
 const Clock: FC<ClockProps> = () => {
   const time = useClock()
-  return <p className="text-xl pt-2">{time}</p>
+  return <p className="min-w-[150px] text-left ">{time}</p>
 }
 
 export default Clock
