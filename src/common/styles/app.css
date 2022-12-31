@@ -5,6 +5,9 @@
 html {
   font-family: IRANSansXFaNum, sans-serif;
 }
+body {
+  overflow-x: hidden;
+}
 :root {
   --lightColor: #ffffff;
   --borderColor: #d1d5db;
