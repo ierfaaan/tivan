@@ -7,6 +7,7 @@ interface SidebarProps {}
 
 const Sidebar: FunctionComponent<SidebarProps> = () => {
   const [sideBarState, setSideBarState] = useState(true)
+
   return (
     <div
       className={classNames(
