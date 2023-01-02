@@ -20,7 +20,7 @@ const Tab: FC<TabProps> = ({ monitorId }) => {
           key={tab.id}
         >
           <Suspense fallback="loading...">
-            {createElement(tab?.layout.component)}.
+            {createElement(tab?.layout.component)}
           </Suspense>
         </div>
       ))}
