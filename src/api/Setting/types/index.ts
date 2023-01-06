@@ -1,4 +1,4 @@
-import { FunctionComponent, ReactElement } from 'react'
+import { FunctionComponent } from 'react'
 
 export type TabType = {
   id: string
@@ -6,7 +6,7 @@ export type TabType = {
   isActive: boolean
   closable?: boolean
   layout: {
-    component: any
+    component: FunctionComponent
     commonProps: Record<string, any>
   }
   data: Record<string, any>

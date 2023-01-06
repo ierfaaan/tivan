@@ -1,9 +1,7 @@
 import { FunctionComponent, useState } from 'react'
 import { IconButton } from '@/elements'
 import { LetterIcon, LogOutIcon, SettingIcon, UserIcon } from '@/common/icons'
-import { Drawer } from '@/common/components'
-import { DrawerMarketMessage } from '@/SeparateModules'
-import Modal from '@/common/components/Modal/Moda'
+import { DrawerMarketMessage, DrawerSetting } from '@/SeparateModules'
 
 interface MenuListProps {}
 
@@ -63,9 +61,7 @@ const MenuList: FunctionComponent<MenuListProps> = () => {
         isOpen={isOpenMessages}
         onCloseHandler={onCloseDrawerMessages}
       />
-      <Drawer isOpen={isOpenSetting} onClose={onCloseDrawerSetting}>
-        Setting
-      </Drawer>
+      <DrawerSetting isOpen={isOpenSetting} onCloseHandler={onCloseDrawerSetting} />
     </div>
   )
 }
