@@ -7,7 +7,7 @@ interface ButtonProps extends Omit<BaseComponentTypesWithIcon, 'icon'> {
   isActive?: boolean
   iconOnClick?: () => void
   iconPlace?: 'left' | 'right'
-  icon: IconType | null
+  icon?: IconType | null
 }
 
 export const Button: FC<ButtonProps> = ({
@@ -27,10 +27,10 @@ export const Button: FC<ButtonProps> = ({
   return (
     <div
       className={classNames(
-        'p-1 px-2 rounded-md flex items-center justify-between gap-x-1 cursor-pointer',
+        'p-1 px-4 rounded-md flex items-center justify-center gap-x-1 cursor-pointer',
         isActive
           ? 'bg-gray-700 hover:bg-gray-600 text-lightColor text-base'
-          : 'bg-gray-200 hover:bg-gray-100',
+          : 'bg-gray-200 hover:bg-gray-300',
         iconPlace === 'right' && 'flex-row-reverse',
         className
       )}

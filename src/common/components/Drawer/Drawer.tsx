@@ -1,5 +1,5 @@
 import classNames from 'classnames'
-import { FunctionComponent } from 'react'
+import { FunctionComponent, useEffect } from 'react'
 import { BaseComponentTypes } from '@/common/types/components'
 import { CloseIcon } from '@/common/icons'
 import { IconButton } from '@/elements'
@@ -13,6 +13,7 @@ interface DrawerProps extends BaseComponentTypes {
 
 interface DrawerHeaderProps extends BaseComponentTypes {
   onClose: () => void
+  title?: string
 }
 interface DrawerType extends FunctionComponent<DrawerProps> {
   Body: React.FC<BaseComponentTypes>
@@ -83,7 +84,7 @@ export const Drawer: DrawerType = ({
       />
       <div
         className={classNames(
-          'bg-white shadow-2xl fixed z-50 transition-transform duration-[0.5s]',
+          'bg-white shadow-2xl fixed z-50 transition-transform duration-[0.5s] flex flex-col',
           classes,
           openClass,
           drawerSize,
@@ -96,20 +97,22 @@ export const Drawer: DrawerType = ({
   )
 }
 
-Drawer.Header = ({ children, className, onClose }): JSX.Element => (
-  <div
-    className={classNames(
-      'p-4 border-b border-gray-400 font-semibold text-xl flex items-center justify-between',
-      className
-    )}
-  >
-    {children}
-    <IconButton icon={CloseIcon} varient="standard" onClick={onClose} />
-  </div>
-)
+Drawer.Header = ({ children, title, className, onClose }): JSX.Element => {
+  return (
+    <div className={classNames('p-4 border-b border-gray-400', className)}>
+      {title && (
+        <div className="w-full flex items-center justify-between font-semibold text-xl">
+          <h2>{title}</h2>
+          <IconButton icon={CloseIcon} varient="standard" onClick={onClose} />
+        </div>
+      )}
+      {children !== undefined && <div className="w-full mt-3">{children}</div>}
+    </div>
+  )
+}
 
 Drawer.Body = ({ children, className }): JSX.Element => (
-  <div className={classNames('space-y-3 overflow-auto flex-1 p-4 pb-[72px]', className)}>
+  <div className={classNames(className, 'space-y-3 overflow-auto flex-1 p-4 pb-[72px]')}>
     {children}
   </div>
 )
