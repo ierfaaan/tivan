@@ -1,20 +1,33 @@
 import classNames from 'classnames'
 import { FunctionComponent } from 'react'
+import { BaseComponentTypes } from '@/common/types/components'
+import { CloseIcon } from '@/common/icons'
+import { IconButton } from '@/elements'
 
-interface DrawerProps {
+interface DrawerProps extends BaseComponentTypes {
   isOpen: boolean
   onClose: () => void
   direction?: 'right' | 'left' | 'top' | 'bottom'
   size?: 'sm' | 'md' | 'xl'
 }
 
-export const Drawer: FunctionComponent<DrawerProps> = ({
+interface DrawerHeaderProps extends BaseComponentTypes {
+  onClose: () => void
+}
+interface DrawerType extends FunctionComponent<DrawerProps> {
+  Body: React.FC<BaseComponentTypes>
+  Header: React.FC<DrawerHeaderProps>
+  Footer: React.FC<BaseComponentTypes>
+}
+
+export const Drawer: DrawerType = ({
   isOpen,
   onClose,
   size = 'md',
   direction = 'left',
   children,
-}) => {
+  className,
+}): JSX.Element => {
   let classes = ''
   let openClass = ''
   let drawerSize = ''
@@ -73,7 +86,8 @@ export const Drawer: FunctionComponent<DrawerProps> = ({
           'bg-white shadow-2xl fixed z-50 transition-transform duration-[0.5s]',
           classes,
           openClass,
-          drawerSize
+          drawerSize,
+          className
         )}
       >
         {children}
@@ -81,3 +95,32 @@ export const Drawer: FunctionComponent<DrawerProps> = ({
     </>
   )
 }
+
+Drawer.Header = ({ children, className, onClose }): JSX.Element => (
+  <div
+    className={classNames(
+      'p-4 border-b border-gray-400 font-semibold text-xl flex items-center justify-between',
+      className
+    )}
+  >
+    {children}
+    <IconButton icon={CloseIcon} varient="standard" onClick={onClose} />
+  </div>
+)
+
+Drawer.Body = ({ children, className }): JSX.Element => (
+  <div className={classNames('space-y-3 overflow-auto flex-1 p-4 pb-[72px]', className)}>
+    {children}
+  </div>
+)
+
+Drawer.Footer = ({ children, className }): JSX.Element => (
+  <div
+    className={classNames(
+      'absolute bg-white border-t border-gray-400 bottom-0 left-[0] right-[0] p-4 flex gap-2',
+      className
+    )}
+  >
+    {children}
+  </div>
+)
